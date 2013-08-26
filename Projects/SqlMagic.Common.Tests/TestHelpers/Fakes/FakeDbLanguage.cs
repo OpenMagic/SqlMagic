@@ -50,7 +50,5 @@ namespace SqlMagic.Common.Tests.TestHelpers.Fakes
             // Deliberately unusual to more clearly show when Database may have quoted a value itself.
             return string.Format("*{0}*", value);
         }
-
-
     }
 }
