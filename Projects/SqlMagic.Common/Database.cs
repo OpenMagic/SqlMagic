@@ -33,7 +33,7 @@ namespace SqlMagic.Common
 
         public void CreateTable(Type rowType)
         {
-            this.CreateTable(TableMetaData.Get(rowType));
+            this.CreateTable(TableMetaData.GetTable(rowType));
         }
 
         public void CreateTable(TableMetaData table)
@@ -53,7 +53,7 @@ namespace SqlMagic.Common
 
         public void Insert<TRow>(TRow row)
         {
-            this.Insert(row.MustNotBeNull("row"), TableMetaData.Get(row.GetType()));
+            this.Insert(row.MustNotBeNull("row"), TableMetaData.GetTable(row.GetType()));
         }
 
         public void Insert<TRow>(TRow row, TableMetaData table)
@@ -81,7 +81,7 @@ namespace SqlMagic.Common
 
         public int GetLastId(Type rowType)
         {
-            return this.GetLastId(TableMetaData.Get(rowType));
+            return this.GetLastId(TableMetaData.GetTable(rowType));
         }
         
         public int GetLastId(TableMetaData table)

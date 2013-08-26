@@ -27,8 +27,8 @@ namespace SqlMagic.Common
         public string ColumnName { get; set; }
         public bool IsIdColumn { get; set; }
         public bool IsNullable { get; set; }
-        public PropertyInfo Property { get; private set; }
-        public TableMetaData Table { get; private set; }
+        public PropertyInfo Property { get; set; }
+        public TableMetaData Table { get; set; }
 
         private ColumnAttribute GetColumnAttribute(PropertyInfo property)
         {

@@ -9,12 +9,7 @@ namespace SqlMagic.Common
 {
     public class TableMetaData
     {
-        private static readonly Dictionary<Type, TableMetaData> Rows = new Dictionary<Type, TableMetaData>();
-
-        private readonly IColumnMetaData[] AllColumns;
-
-        public readonly Type RowType;
-        public readonly string TableName;
+        private static readonly Dictionary<Type, TableMetaData> Tables = new Dictionary<Type, TableMetaData>();
 
         public TableMetaData(Type rowType)
         {
@@ -22,39 +17,50 @@ namespace SqlMagic.Common
 
             this.RowType = rowType;
             this.TableName = GetTableName(rowType);
-            this.AllColumns = (
+            this.Columns = new List<IColumnMetaData>(
                 from c in rowType.GetProperties()
                 select new ColumnMetaData(this, c)
-            ).ToArray();
+            );
         }
 
-        public static TableMetaData Get(Type rowType)
+        public IList<IColumnMetaData> Columns { get; set; }
+
+        public Type RowType { get; set; }
+
+        public string TableName { get; set; }
+
+        public static TableMetaData GetTable(Type rowType)
         {
             rowType.MustNotBeNull("rowType");
 
             TableMetaData metaData = null;
 
-            if (!Rows.TryGetValue(rowType, out metaData))
+            if (!Tables.TryGetValue(rowType, out metaData))
             {
                 metaData = new TableMetaData(rowType);
-                Rows.Add(rowType, metaData);
+                Tables.Add(rowType, metaData);
             }
 
             return metaData;
         }
 
-        public IEnumerable<IColumnMetaData> Columns(bool excludeId = false)
+        public IEnumerable<IColumnMetaData> GetColumns(bool excludeId = false)
         {
             if (excludeId)
             {
-                return from c in this.AllColumns
+                return from c in this.Columns
                        where !c.IsIdColumn
                        select c;
             }
             else
             {
-                return this.AllColumns;
+                return this.Columns;
             }
+        }
+
+        public IColumnMetaData GetIdColumn()
+        {
+            return this.Columns.Single(c => c.IsIdColumn);
         }
 
         private string GetTableName(Type rowType)
@@ -68,11 +74,6 @@ namespace SqlMagic.Common
             }
 
             return tableAttribute.Name;
-        }
-
-        public IColumnMetaData IdColumn()
-        {
-            return this.AllColumns.Single(c => c.IsIdColumn);
         }
     }
 }

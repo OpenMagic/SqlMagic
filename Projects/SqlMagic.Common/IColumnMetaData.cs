@@ -8,7 +8,7 @@ namespace SqlMagic.Common
         string ColumnName { get; set; }
         bool IsIdColumn { get; set; }
         bool IsNullable { get; set; }
-        PropertyInfo Property { get; }
-        TableMetaData Table { get; }
+        PropertyInfo Property { get; set; }
+        TableMetaData Table { get; set; }
     }
 }

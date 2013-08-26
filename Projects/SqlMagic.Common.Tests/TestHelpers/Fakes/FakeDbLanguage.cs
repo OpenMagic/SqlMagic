@@ -43,7 +43,7 @@ namespace SqlMagic.Common.Tests.TestHelpers.Fakes
         {
             table.MustNotBeNull("table");
 
-            var columns = table.Columns(excludeId: false);
+            var columns = table.GetColumns(excludeId: false);
             var columnDefinitions = string.Join(", ", columns.Select(c => this.CreateDefinition(c)));
 
             command.CommandText = string.Format("CREATE TABLE {0} ({1});", this.Quote(table.TableName), columnDefinitions);
@@ -57,7 +57,7 @@ namespace SqlMagic.Common.Tests.TestHelpers.Fakes
             table.MustNotBeNull("table");
             command.MustNotBeNull("command");
 
-            var columns = table.Columns(excludeId: true);
+            var columns = table.GetColumns(excludeId: true);
 
             command.CommandText = string.Format(
                 "INSERT INTO {0} ({1}) VALUES ({2});",
