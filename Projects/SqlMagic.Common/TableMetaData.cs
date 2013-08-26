@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Data.Linq.Mapping;
 using System.Linq;
 using OpenMagic;
-using OpenMagic.Reflection;
 
 namespace SqlMagic.Common
 {
-    public class TableMetaData
+    public class TableMetaData : ITableMetaData
     {
         private static readonly Dictionary<Type, TableMetaData> Tables = new Dictionary<Type, TableMetaData>();
 
