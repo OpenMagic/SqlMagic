@@ -2,6 +2,7 @@
 
 namespace SqlMagic.Common.Tests.TestHelpers
 {
+    [Table(Name = "TestEntities")]
     public class TestEntity
     {
         public int Id { get; set; }

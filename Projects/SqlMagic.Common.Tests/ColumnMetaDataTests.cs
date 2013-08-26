@@ -68,6 +68,26 @@ namespace SqlMagic.Common.Tests
                 column.ColumnName.Should().Be("NullableString");
             }
 
+            [TestMethod]
+            public void ShouldBePropertyNameWhenPropertyHasColumnAttributeButNameIsNotSpecified()
+            {
+                // Given
+                var table = new TableMetaData<EntityWithColumnAttributeButNameIsNotSpecified>();
+                var property = Type<EntityWithColumnAttributeButNameIsNotSpecified>.Property(x => x.Id);
+
+                // When
+                var column = new ColumnMetaData(table, property);
+
+                // Then
+                column.ColumnName.Should().Be("Id");
+            }
+
+            private class EntityWithColumnAttributeButNameIsNotSpecified
+            {
+                [Column(IsDbGenerated=true)]
+                public int Id { get; set; }
+            }
+
             private class EntityWithOverrideColumnName
             {
                 [Column(Name = "Overridden")]

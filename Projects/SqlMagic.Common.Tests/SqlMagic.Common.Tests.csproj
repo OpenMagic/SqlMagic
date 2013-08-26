@@ -53,6 +53,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -68,8 +69,13 @@
   <ItemGroup>
     <Compile Include="ColumnMetaDataTests.cs" />
     <Compile Include="TableMetaDataTests.cs" />
-    <Compile Include="DbConnectionMagicTests.cs" />
+    <Compile Include="DatabaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestHelpers\Fakes\FakeDataParameterCollection.cs" />
+    <Compile Include="TestHelpers\Fakes\FakeDbConnection.cs" />
+    <Compile Include="TestHelpers\Fakes\FakeDbCommand.cs" />
+    <Compile Include="TestHelpers\Fakes\FakeDbLanguage.cs" />
+    <Compile Include="TestHelpers\Fakes\FakeDbParameter.cs" />
     <Compile Include="TestHelpers\TestEntity.cs" />
   </ItemGroup>
   <ItemGroup>

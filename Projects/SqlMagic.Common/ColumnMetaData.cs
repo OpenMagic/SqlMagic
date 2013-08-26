@@ -52,7 +52,7 @@ namespace SqlMagic.Common
         {
             var columnAttribute = this.GetColumnAttribute(property);
 
-            if (columnAttribute == null)
+            if (columnAttribute == null || string.IsNullOrWhiteSpace(columnAttribute.Name))
             {
                 return property.Name;
             }
