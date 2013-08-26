@@ -5,7 +5,7 @@ using OpenMagic;
 
 namespace SqlMagic.Common
 {
-    public class Database<TConnection, TLanguage>
+    public class Database<TConnection, TLanguage> : IDatabase
         where TConnection : IDbConnection
         where TLanguage : IDbLanguage
     {
