@@ -5,9 +5,9 @@ namespace SqlMagic.Common
     {
         string CreateDefinition(IColumnMetaData column);
         string ParameterName(string value);
-        IDbCommand PrepareCreateTableCommand(TableMetaData table, IDbCommand command);
-        IDbCommand PrepareInsertCommand<T>(T row, TableMetaData table, IDbCommand command);
-        IDbCommand PrepareLastIdCommand(TableMetaData table, IDbCommand command);
+        IDbCommand PrepareCreateTableCommand(ITableMetaData table, IDbCommand command);
+        IDbCommand PrepareInsertCommand<T>(T row, ITableMetaData table, IDbCommand command);
+        IDbCommand PrepareLastIdCommand(ITableMetaData table, IDbCommand command);
         string Quote(string value);
     }
 }

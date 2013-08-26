@@ -8,7 +8,7 @@ namespace SqlMagic.Common
 {
     public class TableMetaData : ITableMetaData
     {
-        private static readonly Dictionary<Type, TableMetaData> Tables = new Dictionary<Type, TableMetaData>();
+        private static readonly Dictionary<Type, ITableMetaData> Tables = new Dictionary<Type, ITableMetaData>();
 
         public TableMetaData(Type rowType)
         {
@@ -28,11 +28,11 @@ namespace SqlMagic.Common
 
         public string TableName { get; set; }
 
-        public static TableMetaData GetTable(Type rowType)
+        public static ITableMetaData GetTable(Type rowType)
         {
             rowType.MustNotBeNull("rowType");
 
-            TableMetaData metaData = null;
+            ITableMetaData metaData = null;
 
             if (!Tables.TryGetValue(rowType, out metaData))
             {

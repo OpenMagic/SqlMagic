@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SqlMagic.Common
 {
-    interface ITableMetaData
+    public interface ITableMetaData
     {
         IList<IColumnMetaData> Columns { get; set; }
         IEnumerable<IColumnMetaData> GetColumns(bool excludeId = false);

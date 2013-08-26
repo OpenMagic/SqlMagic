@@ -39,7 +39,7 @@ namespace SqlMagic.Common.Tests.TestHelpers.Fakes
             return "#" + value;
         }
 
-        public IDbCommand PrepareCreateTableCommand(TableMetaData table, IDbCommand command)
+        public IDbCommand PrepareCreateTableCommand(ITableMetaData table, IDbCommand command)
         {
             table.MustNotBeNull("table");
 
@@ -51,7 +51,7 @@ namespace SqlMagic.Common.Tests.TestHelpers.Fakes
             return command;
         }
 
-        public IDbCommand PrepareInsertCommand<T>(T row, TableMetaData table, IDbCommand command)
+        public IDbCommand PrepareInsertCommand<T>(T row, ITableMetaData table, IDbCommand command)
         {
             row.MustNotBeNull("row");
             table.MustNotBeNull("table");
@@ -79,7 +79,7 @@ namespace SqlMagic.Common.Tests.TestHelpers.Fakes
             return command;
         }
 
-        public IDbCommand PrepareLastIdCommand(TableMetaData table, IDbCommand command)
+        public IDbCommand PrepareLastIdCommand(ITableMetaData table, IDbCommand command)
         {
             table.MustNotBeNull("table");
             command.MustNotBeNull("command");

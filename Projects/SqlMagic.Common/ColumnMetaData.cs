@@ -8,7 +8,7 @@ namespace SqlMagic.Common
 {
     public class ColumnMetaData : IColumnMetaData
     {
-        public ColumnMetaData(TableMetaData table, PropertyInfo property)
+        public ColumnMetaData(ITableMetaData table, PropertyInfo property)
         {
             table.MustNotBeNull("table");
             property.MustNotBeNull("property");
@@ -28,14 +28,14 @@ namespace SqlMagic.Common
         public bool IsIdColumn { get; set; }
         public bool IsNullable { get; set; }
         public PropertyInfo Property { get; set; }
-        public TableMetaData Table { get; set; }
+        public ITableMetaData Table { get; set; }
 
         private ColumnAttribute GetColumnAttribute(PropertyInfo property)
         {
             return property.GetCustomAttribute<ColumnAttribute>();
         }
 
-        private bool GetIsIdColumn(TableMetaData table, PropertyInfo property)
+        private bool GetIsIdColumn(ITableMetaData table, PropertyInfo property)
         {
             var columnAttribute = this.GetColumnAttribute(property);
 

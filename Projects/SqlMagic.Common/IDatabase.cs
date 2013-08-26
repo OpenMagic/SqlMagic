@@ -6,13 +6,13 @@ namespace SqlMagic.Common
     {
         void CreateTable<TRow>();
         void CreateTable(Type rowType);
-        void CreateTable(TableMetaData table);
+        void CreateTable(ITableMetaData table);
 
         int GetLastId<TRow>();
         int GetLastId(Type rowType);
-        int GetLastId(TableMetaData table);
+        int GetLastId(ITableMetaData table);
 
         void Insert<TRow>(TRow row);
-        void Insert<TRow>(TRow row, TableMetaData table);
+        void Insert<TRow>(TRow row, ITableMetaData table);
     }
 }
