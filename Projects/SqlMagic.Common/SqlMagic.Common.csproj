@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="ColumnMetaData.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="DbLanguage.cs" />
     <Compile Include="IColumnMetaData.cs" />
     <Compile Include="IDatabase.cs" />
     <Compile Include="IDbLanguage.cs" />
