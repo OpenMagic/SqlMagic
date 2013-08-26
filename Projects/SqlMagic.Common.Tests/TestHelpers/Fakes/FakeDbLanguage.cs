@@ -7,7 +7,7 @@ namespace SqlMagic.Common.Tests.TestHelpers.Fakes
 {
     public class FakeDbLanguage : IDbLanguage
     {
-        public string CreateDefinition(ColumnMetaData column)
+        public string CreateDefinition(IColumnMetaData column)
         {
             column.MustNotBeNull("column");
 
@@ -23,7 +23,7 @@ namespace SqlMagic.Common.Tests.TestHelpers.Fakes
             return string.Format("{0} {1} {2}", this.Quote(column.ColumnName), propertyType, this.GetNullDefinition(column)).Trim();
         }
 
-        private string GetNullDefinition(ColumnMetaData column)
+        private string GetNullDefinition(IColumnMetaData column)
         {
             if (column.IsNullable)
             {

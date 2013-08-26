@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Data.Linq.Mapping;
-using System.Linq;
 using System.Reflection;
 using OpenMagic;
 using OpenMagic.Reflection;
 
 namespace SqlMagic.Common
 {
-    public class ColumnMetaData
+    public class ColumnMetaData : IColumnMetaData
     {
-        public readonly string ColumnName;
-        public readonly bool IsIdColumn;
-        public readonly bool IsNullable;
-        public readonly PropertyInfo Property;
-        public readonly TableMetaData Table;
-
         public ColumnMetaData(TableMetaData table, PropertyInfo property)
         {
             table.MustNotBeNull("table");
@@ -30,6 +23,12 @@ namespace SqlMagic.Common
                 this.IsNullable = this.GetIsNullable(property);
             }
         }
+
+        public string ColumnName { get; set; }
+        public bool IsIdColumn { get; set; }
+        public bool IsNullable { get; set; }
+        public PropertyInfo Property { get; private set; }
+        public TableMetaData Table { get; private set; }
 
         private ColumnAttribute GetColumnAttribute(PropertyInfo property)
         {

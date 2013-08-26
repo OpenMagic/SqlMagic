@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Linq;
 using OpenMagic;
 
 namespace SqlMagic.Common

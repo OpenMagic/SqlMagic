@@ -11,7 +11,7 @@ namespace SqlMagic.Common
     {
         private static readonly Dictionary<Type, TableMetaData> Rows = new Dictionary<Type, TableMetaData>();
 
-        private readonly ColumnMetaData[] AllColumns;
+        private readonly IColumnMetaData[] AllColumns;
 
         public readonly Type RowType;
         public readonly string TableName;
@@ -43,7 +43,7 @@ namespace SqlMagic.Common
             return metaData;
         }
 
-        public IEnumerable<ColumnMetaData> Columns(bool excludeId = false)
+        public IEnumerable<IColumnMetaData> Columns(bool excludeId = false)
         {
             if (excludeId)
             {
@@ -70,7 +70,7 @@ namespace SqlMagic.Common
             return tableAttribute.Name;
         }
 
-        public ColumnMetaData IdColumn()
+        public IColumnMetaData IdColumn()
         {
             return this.AllColumns.Single(c => c.IsIdColumn);
         }
