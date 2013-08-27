@@ -5,24 +5,8 @@ using OpenMagic;
 
 namespace SqlMagic.Tests.TestHelpers.Fakes
 {
-    public class FakeDbLanguage : DbLanguage
+    public class FakeDbLanguage : DbLanguage<FakeDbColumnLanguage>
     {
-        public override string CreateColumnDefinition(IColumnMetaData column)
-        {
-            column.MustNotBeNull("column");
-
-            var propertyType = column.Property.PropertyType.FullName
-                .Replace("System.", "")
-                .Replace(", mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089", "");
-
-            if (column.IsIdColumn)
-            {
-                return string.Format("{0} {1} PRIMARY KEY", this.Quote(column.ColumnName), propertyType);
-            }
-
-            return string.Format("{0} {1} {2}", this.Quote(column.ColumnName), propertyType, this.GetNullDefinition(column)).Trim();
-        }
-
         private string GetNullDefinition(IColumnMetaData column)
         {
             if (column.IsNullable)

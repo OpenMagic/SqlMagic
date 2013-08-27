@@ -82,7 +82,7 @@ namespace SqlMagic.Tests
 
                 command.CommandText.Should().Be(FormatCommandText(
                     @"CREATE TABLE *TestEntities* (
-                        *Id* Int32 PRIMARY KEY, 
+                        *Id* Int32 NOT NULL PRIMARY KEY, 
                         *RequiredInt* Int32 NOT NULL, 
                         *NullableInt* Nullable`1[[Int32]], 
                         *RequiredString* String NOT NULL, 

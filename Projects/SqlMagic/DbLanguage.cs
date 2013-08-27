@@ -3,7 +3,7 @@ using System.Data;
 using System.Linq;
 using OpenMagic;
 
-namespace SqlMagic.Tests.TestHelpers.Fakes
+namespace SqlMagic
 {
     /// <summary>
     /// Implements IDbLanguage. 
@@ -11,9 +11,19 @@ namespace SqlMagic.Tests.TestHelpers.Fakes
     /// Where I'm reasonably confident most SQL providers use the same language them they have been implemented by this class. 
     /// Where I know each provider is unique then the method is abstract.
     /// </summary>
-    public abstract class DbLanguage : IDbLanguage
+    public abstract class DbLanguage<TColumnLanguage> : IDbLanguage where TColumnLanguage : IDbColumnLanguage
     {
-        public abstract string CreateColumnDefinition(IColumnMetaData column);
+        private TColumnLanguage ColumnLanguage;
+
+        public DbLanguage()
+        {
+            this.ColumnLanguage = (TColumnLanguage)Activator.CreateInstance(typeof(TColumnLanguage), this);
+        }
+
+        public virtual string CreateColumnDefinition(IColumnMetaData column)
+        {
+            return ColumnLanguage.Create(column);
+        }
 
         public virtual string CreateTableCommandText(ITableMetaData table)
         {

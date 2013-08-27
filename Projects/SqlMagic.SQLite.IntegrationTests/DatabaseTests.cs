@@ -1,24 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Data;
 using SqlMagic.Tests.TestHelpers;
 
 namespace SqlMagic.SQLite.IntegrationTests
 {
     public class DatabaseTests : IDisposable
     {
-        protected readonly Database<IDbConnection, IDbLanguage> Database;
+        protected Database<SQLiteConnection, SQLiteLanguage> Database;
+        protected SQLiteConnection Connection;
+        protected SQLiteLanguage Language;
 
         public DatabaseTests()
         {
+            this.Connection = new SQLiteConnection(SQLiteConnectionStrings.Memory());
+            this.Connection.Open();
+
+            this.Language = new SQLiteLanguage();
+            this.Database = new Database<SQLiteConnection, SQLiteLanguage>(this.Connection, this.Language);
         }
 
-        public void  Dispose()
+        public void Dispose()
         {
- 	        throw new NotImplementedException();
+            // overly anal!
+            this.Connection.Close();
+            this.Connection.Dispose();
+
+            this.Database = null;
+            this.Connection = null;
+            this.Language = null;
         }
 
         [TestClass]
