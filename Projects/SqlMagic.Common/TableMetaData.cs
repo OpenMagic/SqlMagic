@@ -22,12 +22,6 @@ namespace SqlMagic.Common
             );
         }
 
-        public IList<IColumnMetaData> Columns { get; set; }
-
-        public Type RowType { get; set; }
-
-        public string TableName { get; set; }
-
         public static ITableMetaData GetTable(Type rowType)
         {
             rowType.MustNotBeNull("rowType");
@@ -42,6 +36,12 @@ namespace SqlMagic.Common
 
             return metaData;
         }
+
+        public IList<IColumnMetaData> Columns { get; set; }
+
+        public Type RowType { get; set; }
+
+        public string TableName { get; set; }
 
         public IEnumerable<IColumnMetaData> GetColumns(bool excludeId = false)
         {
