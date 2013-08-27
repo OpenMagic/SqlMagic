@@ -3,7 +3,7 @@ using System.Data;
 using System.Linq;
 using OpenMagic;
 
-namespace SqlMagic.Common.Tests.TestHelpers.Fakes
+namespace SqlMagic.Tests.TestHelpers.Fakes
 {
     /// <summary>
     /// Implements IDbLanguage. 

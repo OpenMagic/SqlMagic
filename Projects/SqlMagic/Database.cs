@@ -2,7 +2,7 @@
 using System.Data;
 using OpenMagic;
 
-namespace SqlMagic.Common
+namespace SqlMagic
 {
     public class Database<TConnection, TLanguage> : IDatabase
         where TConnection : IDbConnection

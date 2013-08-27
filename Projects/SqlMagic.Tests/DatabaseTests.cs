@@ -5,10 +5,10 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using TestMagic;
-using SqlMagic.Common.Tests.TestHelpers;
-using SqlMagic.Common.Tests.TestHelpers.Fakes;
+using SqlMagic.Tests.TestHelpers;
+using SqlMagic.Tests.TestHelpers.Fakes;
 
-namespace SqlMagic.Common.Tests
+namespace SqlMagic.Tests
 {
     public class DatabaseTests
     {

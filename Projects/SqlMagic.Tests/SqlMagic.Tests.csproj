@@ -82,7 +82,7 @@
     <None Include="Packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SqlMagic.Common\SqlMagic.Common.csproj">
+    <ProjectReference Include="..\SqlMagic\SqlMagic.csproj">
       <Project>{A169994C-ECF6-4DCE-B618-CB164D72E026}</Project>
       <Name>SqlMagic.Common</Name>
     </ProjectReference>

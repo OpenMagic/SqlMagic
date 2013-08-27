@@ -6,10 +6,10 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using OpenMagic.Reflection;
-using SqlMagic.Common.Tests.TestHelpers;
+using SqlMagic.Tests.TestHelpers;
 using TestMagic;
 
-namespace SqlMagic.Common.Tests
+namespace SqlMagic.Tests
 {
     public class ColumnMetaDataTests
     {

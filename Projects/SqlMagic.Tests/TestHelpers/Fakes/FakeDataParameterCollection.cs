@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
-namespace SqlMagic.Common.Tests.TestHelpers.Fakes
+namespace SqlMagic.Tests.TestHelpers.Fakes
 {
     public class FakeDataParameterCollection : ArrayList, IDataParameterCollection
     {

@@ -1,6 +1,6 @@
 ﻿using System.Data.Linq.Mapping;
 
-namespace SqlMagic.Common.Tests.TestHelpers
+namespace SqlMagic.Tests.TestHelpers
 {
     [Table(Name = "TestEntities")]
     public class TestEntity

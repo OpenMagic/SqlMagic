@@ -5,7 +5,7 @@ using System.Linq;
 using Inflector;
 using OpenMagic;
 
-namespace SqlMagic.Common
+namespace SqlMagic
 {
     public class TableMetaData : ITableMetaData
     {

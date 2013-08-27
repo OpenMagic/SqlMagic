@@ -1,5 +1,5 @@
 ﻿using System.Data;
-namespace SqlMagic.Common
+namespace SqlMagic
 {
     public interface IDbLanguage
     {

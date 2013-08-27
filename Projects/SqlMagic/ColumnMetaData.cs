@@ -4,7 +4,7 @@ using System.Reflection;
 using OpenMagic;
 using OpenMagic.Reflection;
 
-namespace SqlMagic.Common
+namespace SqlMagic
 {
     public class ColumnMetaData : IColumnMetaData
     {

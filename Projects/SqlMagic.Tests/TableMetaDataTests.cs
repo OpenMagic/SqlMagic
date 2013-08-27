@@ -5,9 +5,9 @@ using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestMagic;
 using FluentAssertions;
-using SqlMagic.Common.Tests.TestHelpers;
+using SqlMagic.Tests.TestHelpers;
 
-namespace SqlMagic.Common.Tests
+namespace SqlMagic.Tests
 {
     public class TableMetaDataTests
     {

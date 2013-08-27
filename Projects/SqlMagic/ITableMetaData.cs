@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SqlMagic.Common
+namespace SqlMagic
 {
     public interface ITableMetaData
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SqlMagic.Common
+namespace SqlMagic
 {
     interface IDatabase
     {

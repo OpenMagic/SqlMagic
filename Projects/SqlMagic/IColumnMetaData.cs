@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace SqlMagic.Common
+namespace SqlMagic
 {
     public interface IColumnMetaData
     {

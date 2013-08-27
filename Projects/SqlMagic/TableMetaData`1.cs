@@ -1,4 +1,4 @@
-﻿namespace SqlMagic.Common
+﻿namespace SqlMagic
 {
     public class TableMetaData<TRow> : TableMetaData where TRow : class
     {

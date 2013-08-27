@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace SqlMagic.Common.Tests.TestHelpers.Fakes
+namespace SqlMagic.Tests.TestHelpers.Fakes
 {
     public class FakeDbConnection : IDbConnection
     {
