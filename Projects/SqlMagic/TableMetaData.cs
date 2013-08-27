@@ -23,6 +23,11 @@ namespace SqlMagic
             );
         }
 
+        public static ITableMetaData GetTable<TTable>()
+        {
+            return GetTable(typeof(TTable));
+        }
+
         public static ITableMetaData GetTable(Type rowType)
         {
             rowType.MustNotBeNull("rowType");

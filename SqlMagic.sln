@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlMagic", "Projects\SqlMag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlMagic.Tests", "Projects\SqlMagic.Tests\SqlMagic.Tests.csproj", "{3E98D6A2-5DEB-41A0-9A73-CC028822224C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlMagic.SQLite.IntegrationTests", "Projects\SqlMagic.SQLite.IntegrationTests\SqlMagic.SQLite.IntegrationTests.csproj", "{254334AC-BC62-43A8-A6F5-378AFACCC88C}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = SqlMagic.vsmdi
@@ -36,6 +38,10 @@ Global
 		{3E98D6A2-5DEB-41A0-9A73-CC028822224C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E98D6A2-5DEB-41A0-9A73-CC028822224C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E98D6A2-5DEB-41A0-9A73-CC028822224C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{254334AC-BC62-43A8-A6F5-378AFACCC88C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{254334AC-BC62-43A8-A6F5-378AFACCC88C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{254334AC-BC62-43A8-A6F5-378AFACCC88C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{254334AC-BC62-43A8-A6F5-378AFACCC88C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
