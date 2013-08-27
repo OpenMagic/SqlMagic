@@ -1,4 +1,7 @@
-SqlMagic
-========
+# SqlMagic
 
 Lightweight ORM-ish like library for SQL databases.
+
+## todo
+
+/// comments.

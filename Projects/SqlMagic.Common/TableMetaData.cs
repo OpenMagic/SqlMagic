@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Linq.Mapping;
 using System.Linq;
+using Inflector;
 using OpenMagic;
 
 namespace SqlMagic.Common
@@ -68,8 +69,7 @@ namespace SqlMagic.Common
 
             if (tableAttribute == null)
             {
-                // todo: smarter pluralization. in the mean time use TableAttribute if this is not sufficient.
-                return rowType.Name + "s";
+                return rowType.Name.Pluralize();
             }
 
             return tableAttribute.Name;
