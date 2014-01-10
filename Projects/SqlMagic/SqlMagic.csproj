@@ -34,15 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging">
-      <HintPath>..\..\packages\Common.Logging.2.1.2\lib\net40\Common.Logging.dll</HintPath>
-    </Reference>
     <Reference Include="Inflector">
       <HintPath>..\..\packages\Inflector.1.0.0.0\lib\net40\Inflector.dll</HintPath>
     </Reference>
-    <Reference Include="OpenMagic, Version=0.1.21.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="OpenMagic, Version=0.1.32.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\OpenMagic.0.1.21.0\lib\net40\OpenMagic.dll</HintPath>
+      <HintPath>..\..\packages\OpenMagic.0.1.32.0\lib\net40\OpenMagic.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
