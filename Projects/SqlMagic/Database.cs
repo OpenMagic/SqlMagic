@@ -14,9 +14,6 @@ namespace SqlMagic
 
         public Database(TConnection connection, TLanguage language)
         {
-            connection.MustNotBeNull("connection");
-            language.MustNotBeNull("language");
-
             if (connection.State != ConnectionState.Open)
             {
                 throw new ArgumentException(string.Format("Connection must be open. It is {0}.", connection.State.ToString().ToLower()), "connection");
@@ -38,8 +35,6 @@ namespace SqlMagic
 
         public void CreateTable(ITableMetaData table)
         {
-            table.MustNotBeNull("table");
-
             using (var command = this.Connection.CreateCommand())
             {
                 var result = this.Language.PrepareCreateTableCommand(table, command).ExecuteNonQuery();
@@ -53,14 +48,11 @@ namespace SqlMagic
 
         public void Insert<TRow>(TRow row)
         {
-            this.Insert(row.MustNotBeNull("row"), TableMetaData.GetTable(row.GetType()));
+            this.Insert(row, TableMetaData.GetTable(row.GetType()));
         }
 
         public void Insert<TRow>(TRow row, ITableMetaData table)
         {
-            row.MustNotBeNull("row");
-            table.MustNotBeNull("table");
-
             using (var command = this.Connection.CreateCommand())
             {
                 this.Language.PrepareInsertCommand(row, table, command);
@@ -86,8 +78,6 @@ namespace SqlMagic
         
         public int GetLastId(ITableMetaData table)
         {
-            table.MustNotBeNull("table");
-
             using (var command = this.Connection.CreateCommand())
             {
                 return (int)this.Language.PrepareLastIdCommand(table, command).ExecuteScalar();

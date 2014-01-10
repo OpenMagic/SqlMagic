@@ -35,8 +35,6 @@ namespace SqlMagic
 
         public virtual string InsertCommandText(ITableMetaData table)
         {
-            table.MustNotBeNull("table");
-
             var columns = table.GetColumns(excludeId: true);
 
             return string.Format(
@@ -56,8 +54,6 @@ namespace SqlMagic
 
         public virtual IDbCommand PrepareCreateTableCommand(ITableMetaData table, IDbCommand command)
         {
-            table.MustNotBeNull("table");
-
             command.CommandText = this.CreateTableCommandText(table);
 
             return command;
@@ -65,10 +61,6 @@ namespace SqlMagic
 
         public virtual IDbCommand PrepareInsertCommand<T>(T row, ITableMetaData table, IDbCommand command)
         {
-            row.MustNotBeNull("row");
-            table.MustNotBeNull("table");
-            command.MustNotBeNull("command");
-
             command.CommandText = this.InsertCommandText(table);
 
             foreach (var column in table.GetColumns(excludeId: true))
@@ -86,9 +78,6 @@ namespace SqlMagic
 
         public virtual IDbCommand PrepareLastIdCommand(ITableMetaData table, IDbCommand command)
         {
-            table.MustNotBeNull("table");
-            command.MustNotBeNull("command");
-
             command.CommandText = this.LastIdCommandText(table);
 
             return command;

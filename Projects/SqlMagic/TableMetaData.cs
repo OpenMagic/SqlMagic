@@ -13,8 +13,6 @@ namespace SqlMagic
 
         public TableMetaData(Type rowType)
         {
-            rowType.MustNotBeNull("rowType");
-
             this.RowType = rowType;
             this.TableName = GetTableName(rowType);
             this.Columns = new List<IColumnMetaData>(
@@ -30,8 +28,6 @@ namespace SqlMagic
 
         public static ITableMetaData GetTable(Type rowType)
         {
-            rowType.MustNotBeNull("rowType");
-
             ITableMetaData metaData = null;
 
             if (!Tables.TryGetValue(rowType, out metaData))

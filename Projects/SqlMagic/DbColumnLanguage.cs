@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NullGuard;
 using OpenMagic;
 
 namespace SqlMagic
@@ -24,8 +25,6 @@ namespace SqlMagic
 
         public DbColumnLanguage(IDbLanguage dbLanguage)
         {
-            dbLanguage.MustNotBeNull("dbLanguage");
-
             this.DbLanguage = dbLanguage;
         }
 
@@ -41,6 +40,7 @@ namespace SqlMagic
             throw new NotSupportedException(string.Format("{0} is not supported.", propertyType));
         }
 
+        [return: AllowNull]
         public virtual string GetNullDefinition(IColumnMetaData column)
         {
             if (column.IsNullable)
