@@ -35,6 +35,7 @@ namespace SqlMagic.SQLite.IntegrationTests
         [TestClass]
         public class CreateTable : DatabaseTests
         {
+            [Ignore]
             [TestMethod]
             public void ShouldAddTableToDatabase()
             {

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package >
+
+    <metadata>
+    
+        <id>SQLMagic</id>
+        <version>$version$</version>
+        <title>SQLMagic</title>
+        <authors>Tim Murphy</authors>
+        <owners>Tim Murphy</owners>
+        <licenseUrl>https://github.com/SQLMagic/SQLMagic/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/SQLMagic/SQLMagic</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Lightweight ORM-ish like library for SQL databases</description>
+        <copyright>Copyright (c) 2013-2014 Tim Murphy</copyright>
+        
+        <dependencies>
+           <group>
+               <dependency id="Inflector" />
+               <dependency id="OpenMagic" />
+           </group>
+        </dependencies>    
+
+    </metadata>
+
+    <files>
+    
+        <file src="..\Projects\SQLMagic\bin\Release\SQLMagic.*" target="lib/net40"/>
+        
+    </files>
+
+</package>

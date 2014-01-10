@@ -10,9 +10,6 @@ namespace SqlMagic
     {
         public ColumnMetaData(ITableMetaData table, PropertyInfo property)
         {
-            table.MustNotBeNull("table");
-            property.MustNotBeNull("property");
-
             this.Table = table;
             this.Property = property;
             this.ColumnName = GetColumnName(property);
